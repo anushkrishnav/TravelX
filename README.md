@@ -1,3 +1,2 @@
-# LCH-webapp
-# Flask-Boilerplate
+# Find My School
 # Halloooween
