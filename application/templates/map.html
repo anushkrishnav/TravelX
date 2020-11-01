@@ -1,0 +1,128 @@
+{% extends "Layouts/layout.html" %}
+{% block content %}
+
+<main>
+  <div class='spider_0'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+<div class='spider_1'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+<div class='spider_2'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+<div class='spider_3'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+<div class='spider_4'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+<div class='spider_5'>
+  <div class='eye left'></div>
+  <div class='eye right'></div>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg left'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+  <span class='leg right'></span>
+</div>
+
+<img class='web-right' src='http://www.scandiafun.com/images/spiderweb-corner-right.png'>
+<img class='web-left' src='http://www.scandiafun.com/images/spiderweb-corner-right.png'>
+
+
+<iframe id="map" src="/skl" style="width:1000px;height:1000px;background:grey;margin-left:15%;margin-top:10%"></div>  
+</iframe>
+<script>  
+function myMap() {  
+var mapOptions = {  
+    center: new google.maps.LatLng(51.5, -0.12),  
+    zoom: 10,  
+    mapTypeId: google.maps.MapTypeId.HYBRID  
+}  
+var map = new google.maps.Map(document.getElementById("mapp"), mapOptions);  
+}  
+</script>  
+
+
+<button class="open-button1" onclick="location.href='/eventreg'" type="button">Register For Event</button>
+<!-- 
+<div class="form-popup" id="myForm">
+  <form class="form-container">
+    <h1>Register</h1>
+    <label for="address"><b>Address</b></label>
+    <input type="varchar" placeholder="Enter Address" name="address" required>
+
+    <label for="time"><b>Time</b></label>
+    <input type="varchar" placeholder="Enter Time" name="Time" required>
+
+    <label for="link"><b>Event Link</b></label>
+    <input type="varchar" placeholder="Event Link" name="link" required>
+
+    <button type="submit" class="btn">Register</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+ -->
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+</main>
+{% endblock %}
+{% block map %}
+<link rel="stylesheet" href="../static/assets/css/map.css">
+{% endblock map %}

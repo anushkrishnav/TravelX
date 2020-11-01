@@ -14,3 +14,4 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.getenv('SECRET_KEY', default='octocat')
     G_KEY = os.getenv('G_KEY')
+    RSECRET_KEY = os.environ.get('RSECRET_KEY')

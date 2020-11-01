@@ -61,9 +61,8 @@ def logout():
 
 @appp.route("/skl")
 def skl():
-    #from .services.map import main
-    #main()
-    return render_template('Skl.html')
+    loc = "hey"
+    return render_template('Skl.html', loc=loc)
 
 
 @appp.route('/register', methods=['GET', 'POST'])
@@ -112,4 +111,4 @@ def party():
     for u in events:
         address.append(u.Email)
     print(address)
-    return render_template('party.html', address=address)
+    return render_template('map.html', address=address)
