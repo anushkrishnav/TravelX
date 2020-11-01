@@ -15,4 +15,4 @@ from .model import models
 @appp.shell_context_processor
 def make_shell_context():
     from .UserDAC import db
-    return{'db': db, 'User': models.User, 'Post': models.Post}
+    return{'db': db, 'User': models.User, 'Post': models.Post, 'Events': models.Events}

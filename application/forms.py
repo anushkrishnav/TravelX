@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, DateField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from .model.models import User
 
@@ -40,3 +40,12 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+
+class EventsForm(FlaskForm):
+    Email = StringField('Email', validators=[DataRequired()])
+    Title = StringField('Party name', validators=[DataRequired()])
+    EDate = StringField('Party Date', validators=[DataRequired()])
+    Time = StringField('Party Time', validators=[DataRequired()])
+    Meet = StringField('Meet/Zoom link', validators=[DataRequired()])
+    submit = SubmitField('Start the Party')

@@ -28,6 +28,17 @@ def load_user(id):
     return User.query.get(int(id))
 
 
+
+class Events(db.Model):
+    Id = db.Column(db.Integer, primary_key=True)
+    Email = db.Column(db.String(250),index=True, unique=True)
+    Title = db.Column(db.String(250), unique=False)
+    EDate = db.Column(db.String(120), unique=False)
+    Time = db.Column(db.String(120), unique=False)
+    Meet = db.Column(db.String(1000),index=True, unique=True)
+
+
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))

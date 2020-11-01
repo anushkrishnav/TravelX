@@ -1,9 +1,9 @@
 from flask import render_template, redirect, flash, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
-from .model.models import User
+from .model.models import User, Events
 from application import appp
 from .UserDAC import db
-from .forms import LoginForm, RegistrationForm, EditProfileForm
+from .forms import LoginForm, RegistrationForm, EditProfileForm, EventsForm
 from werkzeug.urls import url_parse
 
 
@@ -23,10 +23,7 @@ def index():
     return render_template('index.html', index=True)
 
 
-@appp.route("/near")
-@login_required
-def school_near_me():
-    return render_template('snme.html', blog=True)
+
 
 
 @appp.route("/about")
@@ -34,10 +31,7 @@ def school_near_me():
 def about_us():
     return render_template('about.html', blog=True)
 
-@appp.route("/schools")
-@login_required
-def apply():
-    return render_template('products.html', blog=True)
+
 
 
 @appp.route('/login', methods=['GET', 'POST'])
@@ -46,6 +40,7 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
+        print(form.username.data)
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
@@ -94,3 +89,27 @@ def user(username):
     if username[-3:] == 'edu':
         return render_template('schooldash.html, user=user')
     return render_template('user.html', user=user, form=form)
+
+
+@appp.route('/eventreg', methods=['GET', 'POST'])
+def eventregister():
+    form = EventsForm()
+    if form.validate_on_submit():
+        k = form.Email.data
+        print(k)
+        event = Events(Email=k, Title=form.Title.data, EDate=form.EDate.data, Time=form.Time.data, Meet=form.Meet.data)
+        db.session.add(event)
+        db.session.commit()
+        flash('Congratulations, you are now a registered Event!')
+        return redirect(url_for('index'))
+    return render_template('EventReg.html', title='Party', form=form)
+
+@appp.route('/party')
+@login_required
+def party():
+    address = []
+    events = Events.query.all()
+    for u in events:
+        address.append(u.Email)
+    print(address)
+    return render_template('party.html', address=address)
