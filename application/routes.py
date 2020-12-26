@@ -20,7 +20,7 @@ def redir():
 @appp.route("/index")
 @appp.route("/home")
 def index():
-    return render_template('index.html', index=True)
+    return render_template('The Main Website Code/Index.html', index=True)
 
 
 
