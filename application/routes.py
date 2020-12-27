@@ -36,6 +36,7 @@ def about_us():
 
 @appp.route('/login', methods=['GET', 'POST'])
 def login():
+    '''
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
@@ -50,7 +51,8 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+        '''
+    return render_template('Sign_Up_page_code/index.html')
 
 
 @appp.route('/logout')
@@ -80,14 +82,9 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@appp.route('/user/<username>')
-@login_required
-def user(username):
-    form = EditProfileForm()
-    user = User.query.filter_by(username=username).first_or_404()
-    if username[-3:] == 'edu':
-        return render_template('schooldash.html, user=user')
-    return render_template('user.html', user=user, form=form)
+@appp.route('/user')
+def user():
+    return render_template('Dashboard_code/index.html')
 
 
 @appp.route('/eventreg', methods=['GET', 'POST'])
